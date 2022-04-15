@@ -1,0 +1,32 @@
+<%= form_with(model: distributor) do |form| %>
+  <% if distributor.errors.any? %>
+    <div style="color: red" class="alert alert-danger">
+      <h2><%= pluralize(distributor.errors.count, "error") %> prohibited this distributor from being saved:</h2>
+
+      <ul>
+        <% distributor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :distributor_name, style: "display: block", class: "form-label" %>
+    <%= form.text_field :distributor_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :address, style: "display: block", class: "form-label" %>
+    <%= form.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :telephone, style: "display: block", class: "form-label" %>
+    <%= form.number_field :telephone, class: "form-control" %>
+  </div>
+
+  <div class="d-grid gap-1 mb-3">
+    <%= form.submit class: "btn btn-outline-primary" %>
+  </div>
+<% end %>

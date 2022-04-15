@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @distributor %>
+
+<div>
+  <%= link_to "Edit this distributor", edit_distributor_path(@distributor) %> |
+  <%= link_to "Back to distributors", distributors_path %>
+
+  <%= button_to "Destroy this distributor", @distributor, method: :delete %>
+</div>

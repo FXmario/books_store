@@ -1,4 +1,5 @@
 Rails.application.routes.draw do  
+  resources :distributors
   resources :books
   get '/contact',  to: 'dashboards#contact'
   get '/help',     to: 'dashboards#help'
