@@ -25,7 +25,7 @@ class DistributorsController < ApplicationController
 
     respond_to do |format|
       if @distributor.save
-        format.html { redirect_to distributors_path, notice: "Distributor was successfully created." }
+        format.html { redirect_to distributors_url, notice: "Distributor was successfully created." }
         format.json { render :index, status: :created, location: @distributor }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class DistributorsController < ApplicationController
   def update
     respond_to do |format|
       if @distributor.update(distributor_params)
-        format.html { redirect_to distributors_path, notice: "Distributor was successfully updated." }
+        format.html { redirect_to distributors_url, notice: "Distributor was successfully updated." }
         format.json { render :index, status: :ok, location: @distributor }
       else
         format.html { render :edit, status: :unprocessable_entity }
