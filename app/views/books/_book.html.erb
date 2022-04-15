@@ -1,0 +1,62 @@
+<div id="<%= dom_id book %>">
+  <p>
+    <strong>Title:</strong>
+    <%= book.title %>
+  </p>
+
+  <p>
+    <strong>Cover:</strong>
+    <%= link_to book.cover.filename, book.cover if book.cover.attached? %>
+  </p>
+
+  <p>
+    <strong>Noisbn:</strong>
+    <%= book.noisbn %>
+  </p>
+
+  <p>
+    <strong>Writer:</strong>
+    <%= book.writer %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= book.description %>
+  </p>
+
+  <p>
+    <strong>Publisher:</strong>
+    <%= book.publisher %>
+  </p>
+
+  <p>
+    <strong>Year:</strong>
+    <%= book.year %>
+  </p>
+
+  <p>
+    <strong>Stock:</strong>
+    <%= book.stock %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= book.price %>
+  </p>
+
+  <p>
+    <strong>Selling price:</strong>
+    <%= book.selling_price %>
+  </p>
+
+  <p>
+    <strong>PPN:</strong>
+    <%= book.ppn %>
+  </p>
+
+  <p>
+    <strong>Discount:</strong>
+    <%= book.discount %>
+  </p>
+
+</div>

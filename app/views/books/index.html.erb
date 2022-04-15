@@ -1,0 +1,59 @@
+<% provide(:title, 'Books') %>
+
+<%= render 'books/sidebar' %>
+
+<% no = 0 %>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" data-turbo="false">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Books</h1>
+        <%= link_to "New book", new_book_path, class: "btn btn-outline-primary" %>
+
+      </div>
+
+      <p style="color: green"><%= notice %></p>
+
+      <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
+
+        <table class="table table-stripped table-hover table-align-middle table-primary">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Writer</th>
+              <th scope="col">Publisher</th>
+              <th scope="col">Year</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Selling Price</th>
+            </tr>
+          </thead>
+
+          <% @books.each do |book| %>
+
+          <tbody>
+            <tr>
+              <th scope="col" class="text-center"><%= no += 1 %></th>
+              <td>
+                <%= image_tag book.cover, width: "30", class: "img-fluid" if book.cover.attached? %>
+                <%= link_to book.title, book, class: "text-decoration-none" %>
+              </td>
+              <td class="text-center"><%= book.writer %></td>
+              <td class="text-center"><%= book.publisher %></td>
+              <td class="text-center"><%= book.year %></td>
+              <td class="text-center"><%= book.stock %></td>
+              <td class="text-center">Rp. <%= book.selling_price %></td>
+            </tr>
+          </tbody>
+
+          <% end %>
+
+        </table>
+      </div>
+        
+      <div class="d-grid gap-1">
+        
+      </div>
+      
+    </main>
+  </div>
+</div>
