@@ -1,0 +1,4 @@
+fuica:
+  name: Fuica
+  username: fuica
+  password_digest: <%= Cashier.digest('password') %> 

@@ -1,11 +1,15 @@
 Rails.application.routes.draw do  
   resources :distributors
   resources :books
-  get '/contact',  to: 'dashboards#contact'
-  get '/help',     to: 'dashboards#help'
-  get '/about',    to: 'dashboards#about'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :cashiers
 
-  # Defines the root path route ("/")
+  get    '/contact',  to: 'dashboards#contact'
+  get    '/help',     to: 'dashboards#help'
+  get    '/about',    to: 'dashboards#about'
+  get    '/signup',   to: 'cashiers#new'
+  get    '/login',    to: 'sessions#new'
+  post   '/login',    to: 'sessions#create'
+  delete '/logout',   to: 'sessions#destroy'
+  
   root "dashboards#home"
 end

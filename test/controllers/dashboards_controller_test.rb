@@ -1,11 +1,23 @@
 require "test_helper"
 
 class DashboardsControllerTest < ActionDispatch::IntegrationTest
-  test "should get home" do
-    get root_url
-    assert_response :success
-    assert_select "title", "Home | Books Store"
+  def setup
+    @cashier = cashiers(:fuica)
   end
+
+  test "should redirect home when not logged in" do
+    get cashier_path(@cashier)
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
+  # test "should get home" do 
+  #   get cashier_path(@cashier)
+  #   assert flash.empty?
+  #   assert_redirected_to root_path
+  #   assert_response :success
+  #   assert_select "title", "Home | Books Store"
+  # end
 
   test "should get contact" do
     get contact_path

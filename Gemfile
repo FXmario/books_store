@@ -31,7 +31,7 @@ gem "jbuilder"
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -71,6 +71,7 @@ end
 
 group :production do 
   gem 'pg', '1.3.4'
+  gem 'aws-sdk-s3', '~> 1.113'
 end
 
 gem 'bootstrap', '~> 5.1.3'
@@ -80,3 +81,9 @@ gem "rails_feather"
 gem 'active_storage_validations', '0.8.2'
 
 gem 'mini_magick', '~> 4.11'
+
+gem 'rails-controller-testing'
+
+gem "chartkick"
+
+gem "groupdate"

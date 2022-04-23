@@ -32,7 +32,7 @@ class BooksController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
-    end
+     end
   end
 
   # PATCH/PUT /books/1 or /books/1.json
@@ -51,7 +51,6 @@ class BooksController < ApplicationController
   # DELETE /books/1 or /books/1.json
   def destroy
     @book.destroy
-
     respond_to do |format|
       format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
       format.json { head :no_content }

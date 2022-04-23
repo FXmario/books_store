@@ -1,0 +1,62 @@
+<% provide(:title, "Edit Account") %>
+
+<%= render 'cashier/sidebar' %>
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" data-turbo="false">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Editing book <%= @book.title %></h1>
+      </div>
+      
+      <%= form_with(model: @cashier, local: true) do |f| %>
+      	<%= render 'shared/error_nessages' %>
+
+      	<div class="mb-3">
+      		<%= f.label :name, class: "form-label" %>
+      		<%= f.text_field :name, class: "form-control" %>
+      	</div>
+
+      	<div class="mb-3">
+      		<%= f.label :cashier_address, class: "form-label" %>
+      		<%= f.text_field :cashier_address, class: "form-control" %>
+      	</div>
+
+      	<div class="mb-3">
+      		<%= f.label :phone, class: "form-label" %>
+      		<%= f.number_field :phone, class: "form-control" %>
+      	</div>
+
+      	<div class="mb-3">
+      		<%= f.label :status, class: "form-label" %>
+      		<%= f.text_field :status, class: "form-control" %>
+      	</div>
+
+      	<div class="mb-3">
+      		<%= f.label :username, class: "form-label" %>
+      		<%= f.text_field :username, class: "form-control" %>
+      	</div>
+
+      	<div class="mb-3">
+      		<%= f.label :password, class: "form-label" %>
+      		<%= f.password_field :password, class: "form-control" %>
+      	</div>
+
+      	<div class="mb-3">
+      		<%= f.label :password_confirmation, class: " form-label" %>
+      		<%= f.password_field :password_confirmation, class: "form-control" %>
+      	</div>
+
+      	<div class="mb-3 d-grid gap-1">
+      		<%= form.submit class: "btn btn-outline-primary" %>
+      	</div>
+      <% end %>
+      <br>
+
+      <div class="border-top d-grid gap-1">
+        <br>
+        <br>
+        <%= link_to "Show this book", @book, class: "btn btn-outline-primary" %>
+        <%= link_to "Back to books", books_path, class: "btn btn-outline-danger" %>
+      </div>
+    </main>
+  </div>
+</div>

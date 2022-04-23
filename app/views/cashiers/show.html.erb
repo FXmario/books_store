@@ -1,0 +1,21 @@
+<% provide(:title, @cashier.name) %>
+
+<%= render 'cashiers/sidebar' %>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" data-turbo="false">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"><%= @cashier.name %></h1>
+
+      </div>
+
+      <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
+      	<%= line_chart Cashier.group(:name).count %>
+      </div>
+        
+      <div class="d-grid gap-1">
+        
+      </div>
+      
+    </main>
+  </div>
+</div>
