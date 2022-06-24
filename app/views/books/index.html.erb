@@ -16,6 +16,8 @@
         </div>
       <% end %>
 
+      <% unless @books.empty? %>
+
       <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
 
         <table class="table table-stripped table-hover table-align-middle table-primary">
@@ -52,10 +54,12 @@
 
         </table>
       </div>
-        
-      <div class="d-grid gap-1">
-        
-      </div>
+
+      <% else %>
+
+        <h1 class="text-center">
+          No Data.
+        </h1>
       
     </main>
 <%= render 'layouts/closing' %>

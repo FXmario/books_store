@@ -16,6 +16,8 @@
     </div>
   <% end %>
 
+  <% unless @supplies.empty? %>
+
   <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
     <table class="table table-stripped table-hover table-align-middle table-primary">
       <thead>
@@ -45,6 +47,11 @@
       <% end %>
     </table>
   </div>
+
+  <% else %>
+    <h1 class="text-center">
+      No Data.
+    </h1>
 </main>
  
 <%= render 'layouts/closing' %>

@@ -10,8 +10,14 @@
         <%= link_to "New distributor", new_distributor_path, class: "btn btn-outline-primary" %>
       </div>
 
-      <p style="color: green"><%= notice %></p>
+      <% if notice %>
+        <div class="mx-auto alert alert-success text-center">
+          <%= notice %>
+        </div>
+      <% end %>
 
+      <% unless @distributors.empty? %>
+      
       <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
 
         <table class="table table-stripped table-hover table-align-middle table-primary">
@@ -56,9 +62,11 @@
 
         </table>
       </div>
-        
-      <div class="d-grid gap-1">        
-      </div>
+
+      <% else %>
+        <h1 class="text-center">
+          No Data.
+        </h1>
       
     </main>
   </div>
