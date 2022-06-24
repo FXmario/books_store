@@ -1,0 +1,37 @@
+<%= form_with(model: supply) do |form| %>
+  <% if supply.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(supply.errors.count, "error") %> prohibited this supply from being saved:</h2>
+
+      <ul>
+        <% supply.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :book_id, style: "display: block", class: "form-label" %>
+    <%= form.text_field :book_id, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :distributor_id, style: "display: block", class: "form-label" %>
+    <%= form.text_field :distributor_id, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :amount, style: "display: block", class: "form-label" %>
+    <%= form.number_field :amount, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :date, style: "display: block", class: "form-label" %>
+    <%= form.date_field :date, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 d-grid gap-1">
+    <%= form.submit class: "btn btn-outline-primary" %>
+  </div>
+<% end %>

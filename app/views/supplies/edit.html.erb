@@ -1,0 +1,21 @@
+<% provide(:title, 'Edit Supply') %>
+
+<%= render 'supplies/sidebar' %>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+    <h1 class="h2">Editing supply</h1>
+    <%= link_to "Back to supplies", supplies_path, class: "btn btn-outline-primary" %>
+  </div>
+
+  <%= render "form", supply: @supply %>
+
+  <br>
+
+  <div>
+    <%= link_to "Show this supply", @supply, class: "btn-outline-primary" %> 
+  </div>
+</main>
+
+
+

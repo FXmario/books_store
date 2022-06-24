@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_18_070117) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_24_201427) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -70,11 +70,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_070117) do
   create_table "distributors", force: :cascade do |t|
     t.string "distributor_name"
     t.string "address"
-    t.integer "telephone"
+    t.string "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "supplies", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "distributor_id", null: false
+    t.integer "amount"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_supplies_on_book_id"
+    t.index ["distributor_id"], name: "index_supplies_on_distributor_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "supplies", "books"
+  add_foreign_key "supplies", "distributors"
 end

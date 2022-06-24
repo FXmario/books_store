@@ -9,7 +9,7 @@
       </div>
 
       <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
-      	<%= line_chart Cashier.group(:name).count %>
+      	<%= bar_chart Book.group(:stock, :title).count %>
       </div>
         
       <div class="d-grid gap-1">
