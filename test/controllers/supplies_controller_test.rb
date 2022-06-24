@@ -20,7 +20,7 @@ class SuppliesControllerTest < ActionDispatch::IntegrationTest
       post supplies_url, params: { supply: { amount: @supply.amount, book_id: @supply.book_id, date: @supply.date, distributor_id: @supply.distributor_id } }
     end
 
-    assert_redirected_to supply_url(Supply.last)
+    assert_redirected_to supplies_url
   end
 
   test "should show supply" do

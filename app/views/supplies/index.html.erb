@@ -10,16 +10,41 @@
     <%= link_to "New supply", new_supply_path, class: "btn btn-outline-primary" %>
   </div>
 
-  <p style="color: green"><%= notice %></p>
-
-  <div id="supplies">
-  <% @supplies.each do |supply| %>
-    <%= render supply %>
-    <p>
-      <%= link_to "Show this supply", supply %>
-    </p>
+  <% if notice %>
+    <div class="mx-auto alert alert-success text-center">
+      <%= notice %>
+    </div>
   <% end %>
-</div>
+
+  <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
+    <table class="table table-stripped table-hover table-align-middle table-primary">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">Book Title</th>
+          <th scope="col">Distributor</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Date input</th>
+        </tr>
+      </thead>
+      <% @supplies.each do |supply| %>
+        <tbody>
+          <tr>
+            <th scope="col" class="text-center"><%= no += 1 %></th>
+            <td>
+              <%= image_tag supply.book.cover, width: "30", class: "img-fluid" if supply.book.cover.attached? %>
+              <%= supply.book.title %>
+            </td>
+            <td class="text-center">
+              <%= supply.distributor.distributor_name %>
+            </td>
+            <td class="text-center"><%= supply.amount %></td>
+            <td class="text-center"><%= supply.date&.strftime('%d %B %Y') %></td></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
 </main>
  
 <%= render 'layouts/closing' %>

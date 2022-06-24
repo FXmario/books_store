@@ -10,7 +10,11 @@
         <%= link_to "New book", new_book_path, class: "btn btn-outline-primary" %>
       </div>
 
-      <p style="color: green"><%= notice %></p>
+      <% if notice %>
+        <div class="mx-auto alert alert-success">
+          <%= notice %>
+        </div>
+      <% end %>
 
       <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
 

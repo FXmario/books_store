@@ -20,9 +20,9 @@ class CashiersLoginTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, params: { session: { username: @cashier.username, password: 'password' } }
     assert is_logged_in?
-    assert_redirected_to @cashier
+    assert_redirected_to root_path
     follow_redirect!
-    assert_template 'cashiers/show'
+    assert_template 'dashboards/home'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path, count: 0
     assert_select "a[href=?]", cashier_path(@cashier)

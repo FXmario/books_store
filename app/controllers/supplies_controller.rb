@@ -3,7 +3,7 @@ class SuppliesController < ApplicationController
 
   # GET /supplies or /supplies.json
   def index
-    @supplies = Supply.all
+    @supplies = Supply.all.recent
   end
 
   # GET /supplies/1 or /supplies/1.json
@@ -31,7 +31,7 @@ class SuppliesController < ApplicationController
 
     respond_to do |format|
       if @supply.save
-        format.html { redirect_to supply_url(@supply), notice: "Supply was successfully created." }
+        format.html { redirect_to supplies_path, notice: "Supply was successfully created." }
         format.json { render :show, status: :created, location: @supply }
       else
         format.html { render :new, status: :unprocessable_entity }
