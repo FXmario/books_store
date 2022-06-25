@@ -52,6 +52,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rails-controller-testing'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -81,8 +82,6 @@ gem "rails_feather"
 gem 'active_storage_validations', '0.8.2'
 
 gem 'mini_magick', '~> 4.11'
-
-gem 'rails-controller-testing'
 
 gem "chartkick"
 

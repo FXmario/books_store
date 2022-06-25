@@ -1,6 +1,6 @@
 <%= form_with(model: supply) do |form| %>
   <% if supply.errors.any? %>
-    <div style="color: red" class="col-md-6 mx-auto alert alert-danger">
+    <div style="color: red" class="col-md-6 mx-auto alert alert-danger text-center">
       <h2><%= pluralize(supply.errors.count, "error") %> prohibited this supply from being saved:</h2>
 
       <ul>

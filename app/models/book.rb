@@ -1,6 +1,9 @@
 class Book < ApplicationRecord
+  include Visible
+
   has_many :supplies, dependent: :destroy
   has_many :distributors, through: :supplies
+  has_many :sales
   has_one_attached :cover
 
   validates :title, presence: true 

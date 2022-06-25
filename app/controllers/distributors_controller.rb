@@ -4,7 +4,7 @@ class DistributorsController < ApplicationController
 
   # GET /distributors or /distributors.json
   def index
-     @distributors = Distributor.all
+     @distributors = Distributor.all.recent
   end
 
   # GET /distributors/1 or /distributors/1.json

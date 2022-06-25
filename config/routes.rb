@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :distributors
   resources :books
   resources :cashiers
+  resources :sales, only: [:create, :index, :new]
 
   get    '/home',     to: 'dashboards#home'
   get    '/contact',  to: 'dashboards#contact'

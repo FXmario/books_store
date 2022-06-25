@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_24_201427) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_25_084907) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -75,6 +75,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_201427) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "cashier_id", null: false
+    t.integer "quantity"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "total"
+    t.index ["book_id"], name: "index_sales_on_book_id"
+    t.index ["cashier_id"], name: "index_sales_on_cashier_id"
+  end
+
   create_table "supplies", force: :cascade do |t|
     t.integer "book_id", null: false
     t.integer "distributor_id", null: false
@@ -88,6 +100,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_201427) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "sales", "books"
+  add_foreign_key "sales", "cashiers"
   add_foreign_key "supplies", "books"
   add_foreign_key "supplies", "distributors"
 end

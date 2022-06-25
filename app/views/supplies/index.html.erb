@@ -40,8 +40,12 @@
             <td class="text-center">
               <%= supply.distributor.distributor_name %>
             </td>
-            <td class="text-center"><%= supply.amount %></td>
-            <td class="text-center"><%= supply.date&.strftime('%d %B %Y') %></td></td>
+            <td class="text-center">
+              <%= supply.amount %>
+            </td>
+            <td class="text-center">
+              <%= supply.date&.strftime('%d %B %Y') %>
+            </td>
           </tr>
         </tbody>
       <% end %>
@@ -53,6 +57,7 @@
       No Data.
     </h1>
   <% end %>
+  
 </main>
  
 <%= render 'layouts/closing' %>

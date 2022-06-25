@@ -1,0 +1,64 @@
+<% provide(:title, 'Sales') %>
+
+<%= render 'sales/sidebar' %>
+
+<% no = 0 %>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" data-turbo="false">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Sales</h1>
+    <%= link_to "New sales", new_sale_path, class: "btn btn-outline-primary" %>
+  </div>
+
+  <% if notice %>
+    <div class="mx-auto alert alert-success text-center">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <% unless @sales.empty? %>
+
+  <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
+    <table class="table table-stripped table-hover table-align-middle table-primary">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">Book Title</th>
+          <th scope="col">Cashier</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <% @sales.each do |sales| %>
+        <tbody>
+          <tr>
+            <th scope="col" class="text-center"><%= no += 1 %></th>
+            <td>
+              <%= image_tag sales.book.cover, width: "30", class: "img-fluid" if sales.book.cover.attached? %>
+              <%= sales.book.title %>
+            </td>
+            <td class="text-center">
+              <%= sales.cashier.name %>
+            </td>
+            <td class="text-center"><%= sales.quantity %></td>
+            <td class="text-center">
+              <%= sales.total %>
+            </td>
+            <td class="text-center"><%= sales.date&.strftime('%d %B %Y') %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+
+  <% else %>
+    <h1 class="text-center">
+      No Data.
+    </h1>
+  <% end %>
+</main>
+ 
+<%= render 'layouts/closing' %>
+
+

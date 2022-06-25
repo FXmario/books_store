@@ -22,8 +22,6 @@ class SuppliesController < ApplicationController
 
   def search
     @search = Book.find(params[:noisbn])
-
-    
   end
 
   # POST /supplies or /supplies.json

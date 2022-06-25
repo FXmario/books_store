@@ -1,0 +1,40 @@
+<%= form_with(model: sale) do |f| %>
+	<% if sale.errors.any? %>
+		<div class="mx-auto alert alert-danger text-center">
+			<h2>
+				<%= pluralize(sale.errors.count, "error") %>
+				Prohibuted this sales from being processed:
+			</h2>
+
+			<ul>
+				<% sale.errors.each do |e| %>
+					<li>
+						<%= error.full_message %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="mb-3">
+		<%= f.label :book_id, class: "form-label" %>
+		<%= f.collection_select(:book_id, Book.all, :id, :title, {}, { class: "form-select" } ) %>
+	</div>
+	<div class="mb-3">
+		<%= f.hidden_field :cashier_id, class: "form-control", value: @current_cashier.id %>
+	</div>
+	<div class="mb-3">
+		<%= f.label :quantity, class: "form-label" %>
+		<%= f.number_field :quantity, class: "form-control", value: 0 %>
+	</div>
+	<div class="mb-3">
+		<%= f.label :total, class: "form-label" %>
+		<%= f.number_field :total, class: "form-control" %>
+	</div>
+	<div class="mb-3">
+		<%= f.hidden_field :date, class: "form-control", value: DateTime.now %>
+	</div>
+	<div class="mb-3 d-grid gap-1">
+		<%= f.submit class: "btn btn-outline-primary" %>
+	</div>
+<% end %>
