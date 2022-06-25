@@ -21,6 +21,10 @@
 		<%= f.collection_select(:book_id, Book.all, :id, :title, {}, { class: "form-select" } ) %>
 	</div>
 	<div class="mb-3">
+		<%= f.label :price, class "form-label" %>
+		
+	</div>
+	<div class="mb-3">
 		<%= f.hidden_field :cashier_id, class: "form-control", value: @current_cashier.id %>
 	</div>
 	<div class="mb-3">
