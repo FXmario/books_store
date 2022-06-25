@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :books
   resources :cashiers
 
+  get    '/home',     to: 'dashboards#home'
   get    '/contact',  to: 'dashboards#contact'
   get    '/help',     to: 'dashboards#help'
   get    '/about',    to: 'dashboards#about'
@@ -12,5 +13,5 @@ Rails.application.routes.draw do
   post   '/login',    to: 'sessions#create'
   delete '/logout',   to: 'sessions#destroy'
   
-  root "dashboards#home"
+  root "sessions#new"
 end

@@ -13,16 +13,16 @@ class CashiersLoginTest < ActionDispatch::IntegrationTest
     assert_template 'sessions/new'
     assert_not flash.empty?
     get root_path
-    assert_not flash.empty?
+    assert flash.empty?
   end
 
   test "login with valid information followed by logout" do
     get login_path
     post login_path, params: { session: { username: @cashier.username, password: 'password' } }
     assert is_logged_in?
-    assert_redirected_to root_path
+    assert_redirected_to '/home'
     follow_redirect!
-    assert_template 'dashboards/home'
+    assert_template root_path
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path, count: 0
     assert_select "a[href=?]", cashier_path(@cashier)

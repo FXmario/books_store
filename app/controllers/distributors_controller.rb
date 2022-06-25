@@ -1,5 +1,6 @@
 class DistributorsController < ApplicationController
   before_action :set_distributor, only: %i[ show edit update destroy ]
+  before_action :is_login
 
   # GET /distributors or /distributors.json
   def index
@@ -66,5 +67,11 @@ class DistributorsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def distributor_params
       params.require(:distributor).permit(:distributor_name, :address, :telephone)
+    end
+
+    def is_login
+      unless logged_in?
+        redirect_to root_path, notice: "Please Login!"
+      end
     end
 end

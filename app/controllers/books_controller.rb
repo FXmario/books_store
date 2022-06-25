@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :is_login
 
   # GET /books or /books.json
   def index
@@ -66,5 +67,11 @@ class BooksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def book_params
       params.require(:book).permit(:title, :cover, :noisbn, :writer, :description, :publisher, :year, :stock, :price, :selling_price, :ppn, :discount)
+    end
+
+    def is_login
+      unless logged_in?
+        redirect_to root_path, notice: "Please Login"
+      end
     end
 end

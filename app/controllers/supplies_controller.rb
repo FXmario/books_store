@@ -1,5 +1,6 @@
 class SuppliesController < ApplicationController
   before_action :set_supply, only: %i[ show edit update destroy ]
+  before_action :is_login
 
   # GET /supplies or /supplies.json
   def index
@@ -72,5 +73,11 @@ class SuppliesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def supply_params
       params.require(:supply).permit(:book_id, :distributor_id, :amount, :date)
+    end
+
+    def is_login
+      unless logged_in?
+        redirect_to root_path, notice: "Please Login!"
+      end
     end
 end
